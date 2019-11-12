@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">时间奖励列表</li>
+                    <li class=""><a href='{{urlfor "AddTimeGiftController.get"}}'>添加时间奖励</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-inline">
+                        领奖开启/关闭：<span style="color:#FF5722; margin-right: 10px;">{{if eq .vbs.Value "1"}}开启中{{else}}已关闭{{end}}</span>
+                        <button  id="swich" class="layui-btn layui-btn-normal layui-btn-xs edit-attr">开关</button><br>
+                        领奖间隔设置：<span style="color:#FF5722; margin-right: 10px;">{{or .vipattribute.Value "未配置"}}分钟</span>
+                        <button  id="edittime" class="layui-btn layui-btn-normal layui-btn-xs edit-attr">修改</button>
+                        <span class="layui-word-aux">会员领取奖励的时间间隔</span><br>
+                        禁止领奖提示 ：<span style="color:#FF5722; margin-right: 10px;">{{or .notice.Value "未配置"}}</span>
+                        <button  id="notice" class="layui-btn layui-btn-normal layui-btn-xs edit-attr">修改</button>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <td>编号</td>
+                                <td>VIP等级</td>
+                                <td>最小金额</td>
+                                <td>最大金额</td>
+                                <td>单位</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                            <tr>
+                                <td>{{$vo.Id}}</td>
+                                <td>{{$vo.GiftLevel}}</td>
+                                <td>{{$vo.MinMoney}}</td>
+                                <td>{{$vo.MaxMoney}}</td>
+                                <td>{{if eq 0 $vo.Category}}元{{else}}角{{end}}</td>
+                                <td>
+                                    <a href='{{urlfor "EditTimeGiftController.Get" "id" $vo.Id}}' class="layui-btn layui-btn-normal layui-btn-xs">修改</a>
+                                    <button href='{{urlfor "IndexTimeGiftController.Delone" "id" $vo.Id}}' class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除</button>
+                                </td>
+                            </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+    layui.use(['layer'],function(){
+        $('#edittime').on('click', function () {
+            layer.open({
+                type: 1,
+                title: '修改领取奖励时间',
+                btn: ['保存'],
+                content: '<div style="padding: 10px;"><input type="number" id="timeattribute" placeholder="请输入领取奖励时间" class="layui-input"></div>',
+                yes: function(index, layero){
+                    var tb = $("#timeattribute").val();
+                    if(tb == '' || isNaN(tb)) {
+                        layer.msg("领取奖励时间不能为空，且必须为数字");
+                        return;
+                    }
+                    $.ajax({
+                        url: {{urlfor "IndexTimeGiftController.ModifyAttr"}},
+                        type: "post",
+                        data: {"time":tb},
+                        success: function (info) {
+                            if (info.code === 1) {
+                                setTimeout(function () {
+                                    location.href = info.url || location.href;
+                                }, 1000);
+                            }
+                            layer.msg(info.msg);
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+            return false;
+        });
+
+        $('#notice').on('click', function () {
+            layer.open({
+                type: 1,
+                title: '修改禁止领奖提示',
+                btn: ['保存'],
+                content: '<div style="padding: 10px;width:300px;"><textarea  id="noticeattribute" placeholder="请输入禁止领奖提示" ></textarea></div>',
+                yes: function(index, layero){
+                    var tb = $("#noticeattribute").val();
+                    if(tb === '') {
+                        layer.msg("禁止领奖提示不能为空");
+                        return;
+                    }
+                    $.ajax({
+                        url: {{urlfor "IndexTimeGiftController.ModifyAttr"}},
+                        type: "post",
+                        data: {"notice":tb},
+                        success: function (info) {
+                            if (info.code === 1) {
+                                setTimeout(function () {
+                                    location.href = info.url || location.href;
+                                }, 1000);
+                            }
+                            layer.msg(info.msg);
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+            return false;
+        });
+    });
+
+
+
+
+    $('#swich').on('click', function () {
+        $.ajax({
+            url: {{urlfor "IndexTimeGiftController.ModifyStatus"}},
+            type: "post",
+            success: function (info) {
+                if (info.code === 1) {
+                    setTimeout(function () {
+                        location.href = info.url || location.href;
+                    }, 1000);
+                }
+                layer.msg(info.msg);
+            }
+        });
+    })
+</script>
+</body>
+</html>

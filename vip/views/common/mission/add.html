@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+			<!--tab标签-->
+			<div class="layui-tab layui-tab-brief">
+				<ul class="layui-tab-title">
+					<li class=""><a href='{{urlfor "IndexMissionController.get"}}'>任务配置列表</a></li>
+					<li class="layui-this">添加任务配置</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form form-container" action='{{urlfor "AddMissionController.post"}}' method="post">
+							{{ .xsrfdata }}
+							<div class="layui-form-item">
+								<label class="layui-form-label">开始时间</label>
+								<div class="layui-input-block">
+									<input type="text" name="StartTime" value="" placeholder="开始时间" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">结束时间</label>
+								<div class="layui-input-block">
+									<input type="text" name="EndTime" value="" placeholder="结束时间" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">任务描述</label>
+								<div class="layui-input-block">
+									<input type="text" name="Describe" value="" required lay-verify="required" placeholder="请输入任务描述" class="layui-input">
+								</div>
+							</div>
+
+							<div class="layui-form-item">
+								<label class="layui-form-label">是否计算</label>
+								<div class="layui-input-block">
+									<input type="radio" name="CountEnble" value="1" title="是">
+									<input type="radio" name="CountEnble" value="0" title="否" checked>
+								</div>
+							</div>
+							<div class="layui-form-item leiji">
+								<label class="layui-form-label">累计计算</label>
+								<div class="layui-input-block">
+									<input type="radio" name="SumEnable" value="1" title="是">
+									<input type="radio" name="SumEnable" value="0" title="否" checked>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">任务积分</label>
+								<div class="layui-input-inline">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="Integral" value="" required lay-verify="required" placeholder="请输入任务积分" class="layui-input">
+								</div>
+								<div class="layui-form-mid layui-word-aux">会员完成任务后可以获得的积分</div>
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit lay-filter="*">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+	layui.use(['laydate','form'], function(){
+
+
+		var form = layui.form;
+		form.on('radio', function(data){
+			if(data.value==1){
+				$(".leiji").show()
+			}else{
+				$(".leiji").hide()
+			}
+		});
+
+		var laydate = layui.laydate;
+		laydate.render({
+			elem: 'input[name="StartTime"]',
+			type: 'datetime'
+		});
+		laydate.render({
+			elem: 'input[name="EndTime"]',
+			type: 'datetime'
+		});
+	})
+</script>
+</body>
+</html>

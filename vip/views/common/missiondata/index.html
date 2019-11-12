@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class=""><a href='{{urlfor "IndexMissionController.get"}}'>任务配置列表</a></li>
+                    <li class="layui-this">任务数据列表</li>
+                    <li><a id="import" lay-data="{url: '{{urlfor "IndexMissionDateController.Import" "missionid" .Missionid}}'}"
+                           href='javascript:void(0);'>批量导入</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <form class="layui-form layui-form-pane form-container" style="max-width: 1500px;" action='{{urlfor "IndexMissionDateController.get"}}' method="get">
+                        <input type="hidden" name="id" value="{{.Missionid}}">
+                        <div class="layui-inline">
+                            <div class="layui-form-inline">
+                                <label class="layui-form-label">开始时间</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="startTime" value="{{.condArr.starttime}}" placeholder="开始时间" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-form-inline">
+                                <label class="layui-form-label">结束时间</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="endTime" value="{{.condArr.endtime}}" placeholder="开始时间" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input type="text" name="account" value="{{.condArr.account}}" placeholder="会员账号" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button class="layui-btn">搜索</button>
+                            <a href='{{urlfor "IndexMissionDateController.Delbatch"}}' class="layui-btn layui-btn-danger ajax-batch">批量删除</a>
+                            <a href='{{urlfor "IndexMissionDateController.Count"}}' class="layui-btn layui-btn-normal ajax-count">进行计算</a>
+                            <a href='{{urlfor "IndexMissionResultController.get" "id" .Missionid }}' class="layui-btn layui-btn-normal">查看计算结果</a>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="layui-inline">
+                        活动内容:<span style="color: red">{{.describe}}</span>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <td>编号</td>
+                                <td>导入时间</td>
+                                <td>会员账号</td>
+                                <td>数据</td>
+                                <td>是否已计算</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                            <tr>
+                                <td>{{$vo.Id}}</td>
+                                <td>{{$vo.Period}}</td>
+                                <td>{{$vo.Account}}</td>
+                                <td>{{$vo.Data}}</td>
+                                <td>{{if eq 0 $vo.Enable}}<span style="color: red">未计算</span>{{else}}已计算{{end}}</td>
+                                <td>
+                                    <button href='{{urlfor "IndexMissionDateController.Delone" "id" $vo.Id}}' class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除</button>
+                                </td>
+                            </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+    layui.use(['layer'], function () {
+        $('.ajax-count').on('click', function () {
+            var _href = $(this).attr('href');
+            layer.open({
+                shade: false,
+                content: '该操作将根据导入时间批量处理数据！<br>确定执行？',
+                btn: ['确定', '取消'],
+                yes: function (index) {
+                    $.ajax({
+                        url: _href,
+                        type: "POST",
+                        data: $('.layui-form').serialize(),
+                        beforeSend:function(){
+                            layer.load();
+                        },
+                        success: function (info) {
+                            layer.closeAll('loading');
+                            if (info.code === 1) {
+                                layer.msg(info.msg, {icon: 1});
+                            } else {
+                                layer.msg(info.msg, {icon: 2});
+                            }
+                        },
+                        error: function(info) {
+                            layer.closeAll('loading');
+                            layer.msg(info.responseText || '请求异常', {icon: 2});
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+
+            return false;
+        });
+    })
+</script>
+<script>
+    layui.use(['laydate'], function(){
+
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: 'input[name="startTime"]',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: 'input[name="endTime"]',
+            type: 'datetime'
+        });
+    })
+</script>
+</body>
+</html>

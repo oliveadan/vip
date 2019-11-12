@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">会员统计列表</li>
+                    <li><a id="import" lay-data="{url: '{{urlfor "MemberTotalIndexController.Import"}}'}"
+                           href='javascript:void(0);'>批量导入</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <form class="layui-form layui-form-pane form-container" style="max-width: 1500px;"
+                          action='{{urlfor "MemberTotalIndexController.get"}}' method="get">
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input type="text" name="account" value="{{.condArr.account}}" placeholder="会员账号"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="level" value="{{.condArr.level}}" placeholder="VIP等级"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="integral" value="{{.condArr.integral}}" placeholder="会员积分"
+                                       class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">保级状态</label>
+                            <div class="layui-input-inline">
+                                <select name="keep">
+                                    <option value="">全部</option>
+                                    <option value="0" {{if eq "0" .condArr.keep}}selected="selected"{{end}}>保级成功</option>
+                                    <option value="1" {{if eq "1" .condArr.keep}}selected="selected"{{end}}>保级失败</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">排序字段</label>
+                            <div class="layui-input-inline">
+                                <select name="order">
+                                    <option value="">无</option>
+                                    <option value="-LevelUpTime" {{if eq "-LevelUpTime" .condArr.order}}selected="selected"{{end}}>更新时间</option>
+                                    <option value="-Level" {{if eq "-Level" .condArr.order}}selected="selected"{{end}}>VIP等级</option>
+                                    <option value="-Bet" {{if eq "-Bet" .condArr.order}}selected="selected"{{end}}>会员积分</option>
+                                    <option value="-TimeGiftSum" {{if eq "-TimeGiftSum" .condArr.order}}selected="selected"{{end}}>时间奖励总收益</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input type="checkbox" name="isExport" value="1" lay-skin="switch" lay-text="导出|导出">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button class="layui-btn">搜索/导出</button>
+                            <!--<a href='{{urlfor "MemberTotalIndexController.Delbatch"}}' class="layui-btn layui-btn-danger ajax-batch">删除所有</a>-->
+                            <a class="layui-btn layui-btn-normal ajax-keep">保级计算</a>
+                        </div>
+                    </form>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <td>编号</td>
+                                <td>会员账号</td>
+                                <td>更新时间</td>
+                                <td>VIP等级</td>
+                                <td>会员积分</td>
+                                <td>保级状态</td>
+                                <td>时间奖励总收益</td>
+                                <td>任务积分</td>
+                                <td>活动状态</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                                <tr>
+                                    <td>{{$vo.Id}}</td>
+                                    <td>{{$vo.Account}}</td>
+                                    <td>{{date $vo.LevelUpTime "Y-m-d H:i:s"}}</td>
+                                    <td>VIP{{$vo.Level}}</td>
+                                    <td>{{$vo.Bet}}</td>
+                                    <td>{{if eq $vo.KeepEnable 0}}保级成功{{else}}<span style="color: red">保级失败</span>{{end}}</td>
+                                    <td>{{$vo.TimeGiftSum}}</td>
+                                    <td>{{$vo.MissionIntegral}}</td>
+                                    <td>
+                                        {{if eq $vo.ActivityStatus 0}}
+                                        正常
+                                        {{else}}
+                                        <span style="color: red">禁用</span>
+                                        {{end}}
+                                    </td>
+                                    <td>
+                                        <a href='{{urlfor "MemberTotalEditController.Get" "id" $vo.Id}}'
+                                           class="layui-btn layui-btn-normal layui-btn-xs">修改</a>
+                                        <a href='{{urlfor "MemberTotalIndexController.ChangeActivityStatus" "id" $vo.Id "status" $vo.ActivityStatus}}'
+                                           class="layui-btn layui-btn-xs ajax-click ">更改活动状态</a>
+                                        <!--<button href='{{urlfor "MembersingleIndexController.Delone" "id" $vo.Id}}' class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除</button> -->
+                                    </td>
+                                </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                        {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="form-edit" style="display:none;padding:20px 20px 0 0;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">开始时间</label>
+        <div class="layui-input-block">
+            <input type="text" id="start" name="StartTime" value="" placeholder="开始时间" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">结束时间</label>
+        <div class="layui-input-block">
+            <input type="text" id ="end" name="EndTime" value="" placeholder="结束时间" class="layui-input">
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+    layui.use(['layer','element','laydate'], function () {
+        var element = layui.element;
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: 'input[name="uptime"]',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: 'input[name="StartTime"]',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: 'input[name="EndTime"]',
+            type: 'datetime'
+        });
+        $('.ajax-keep').on('click', function () {
+            layer.open({
+                type: 1,
+                title: '保级计算',
+                area: '300px',
+                content: $('#form-edit'),
+                btn: ['确定', '取消'],
+                yes: function (index) {
+                    $.ajax({
+                        url: {{urlfor "MemberTotalIndexController.Count"}},
+                        type: "POST",
+                        data:{start:$("#start").val(),end:$("#end").val()},
+                        beforeSend:function (){
+                           layer.load();
+                        },
+                        success: function (info) {
+                            layer.closeAll('loading');
+                            if (info.code === 1) {
+                                layer.open({
+                                    shade: false,
+                                    title:'计算成功',
+                                    content: info.msg,
+                                    btn: ['确定'],
+                                });
+                               // layer.msg(info.msg, {icon: 1});
+                            } else {
+                                layer.msg(info.msg, {icon: 2});
+                            }
+                        },
+                        error: function(info) {
+                            layer.msg(info.responseText || '请求异常', {icon: 2});
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

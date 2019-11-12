@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>VIP等级规则</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/front/css/bootstrap.css" />
+    <link rel="stylesheet" href="/static/front/css/vipCenter.css" />
+    <style>
+        .container {
+            background-color: #fff;
+            color: #777;
+            padding-bottom: 50px;
+        }
+
+        .tit {
+            text-align: center;
+            width: 100%;
+            color: gold;
+            font-weight: bold;
+        }
+
+        .hr1 {
+            border-top: 1px solid #ddd;
+            margin-top: 0px;
+            margin-bottom: 20px;
+        }
+
+        .tit1 {
+            color: rgb(247, 200, 81);
+            font-weight: bold
+        }
+        .reBtn{
+            border: 0;
+            color: #777;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<button type="button" class="reBtn btn btn-default btn-lg">
+    <a href='{{urlfor "VipCenterController.get"}}?name={{.name}}'>
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>返回
+    </a>
+</button>
+<div class="container">
+    <h2 class="tit">会员VIP等级介绍</h2>
+    <div>
+        <p>会员VIP等级是基于用户一定时期内使用永利VIP业务累计获取的存款成长值所决定，用户达到相应的等级门槛即可升级。用户可通过存款金额、积分兑换和注册时间来获取成长值，从而提升等级。</p>
+    </div>
+    <hr class="hr1">
+    <div>
+        <h4 class="tit1">等级有效期</h4>
+        <p>会员等级为永久有效，若会员尚未达到最低的保底等级要求，将从阶段开始降低VIP等级，如果降低至VIP7 将不再降级。</p>
+    </div>
+    <div>
+        <h4 class="tit1">升降级规则</h4>
+        <p>用户在等级有效期内等级积分达到升级门槛值，新等级立即生效。等级到期后，用户等级将根据上个有效期内等级成长值重新计算。</p>
+        <p>如公司推出限时的等级【粉丝奖励】和【忠实等级】只有在活动中得到，此等级达到之后拥有时间也是限时，不做任何其他渠道获得。</p>
+        <p>用户等级最低降至VIP7，如出现其他异常，以公司的系统为准。</p>
+        <p>温馨提醒：请勿违规刷成长值（包括虚假交易、炒信、恶意注册、套现、对打、刷流水）等情况，如发现您存在违规行为，我们有权取消您获取成长值的资格。</p>
+    </div>
+    <div class="text-muted">
+        <h4 class="tit1">会员等级对照表</h4>
+        <p>用户等级成长值达到对应升级门槛，则立即升级，用户的等级将根据上个等级内已累计成长值重新计算等级。</p>
+        <table class="table table-bordered table-hover text-center">
+            <thead>
+            <tr>
+                <th class="text-center">VIP等级</th>
+                <th class="text-center">对应升级门槛 【成长值】</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>VIP 1</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>VIP 2</td>
+                <td>2500</td>
+            </tr>
+            <tr>
+                <td>VIP 3</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td>VIP 4</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>VIP 5</td>
+                <td>30000</td>
+            </tr>
+            <tr>
+                <td>VIP 6</td>
+                <td>50000</td>
+            </tr>
+            <tr>
+                <td>VIP 7</td>
+                <td>80000</td>
+            </tr>
+            <tr>
+                <td>VIP 8</td>
+                <td>100000/月</td>
+            </tr>
+            <tr>
+                <td>VIP 9</td>
+                <td>180000/月</td>
+            </tr>
+            <tr>
+                <td>VIP 10</td>
+                <td>300000/月</td>
+            </tr>
+            <tr>
+                <td>黄金 VIP</td>
+                <td>800000/月</td>
+            </tr>
+            <tr>
+                <td>白金 VIP</td>
+                <td>3000000/月</td>
+            </tr>
+            <tr>
+                <td>钻石 VIP</td>
+                <td>7000000/月</td>
+            </tr>
+            <tr>
+                <td>至尊 VIP</td>
+                <td>15000000/月</td>
+            </tr>
+            <tr class="warning">
+                <td>粉丝用户</td>
+                <td>限时推广</td>
+            </tr>
+            <tr class="warning">
+                <td>忠实用户</td>
+                <td>限时推广</td>
+            </tr>
+            <tbody>
+
+        </table>
+    </div>
+</div>
+<script src="/static/front/js/jquery-3.3.1.min.js"></script>
+<script src="/static/front/js/bootstrap.js"></script>
+</body>
+</html>

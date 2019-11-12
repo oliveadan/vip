@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">站点配置列表</li>
+                    <li class=""><a href='{{urlfor "SiteConfigAddController.get"}}'>添加配置</a></li>
+                </ul>
+                <br>
+                <img src="{{or getNoticeImg "/static/img/noimg.jpg"}}" id="imgreview" width="200px" height="100px">
+                <button type="button" class="layui-btn layui-btn-normal layui-btn-big" id="upphoto">选择图片</button>
+                <input type="hidden" name="Value" id="Photo" value="">
+                <span class="layui-word-aux">规格:670*490.用于公告显示.</span><br>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>名称</th>
+                                <th>值</th>
+                                <th>更新时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                                <tr>
+                                    <td>{{$vo.Id}}</td>
+                                    <td>{{map_get getSiteConfigCodeMap $vo.Code}}</td>
+                                    <td>{{$vo.Value}}</td>
+                                    <td>{{date $vo.ModifyDate "Y-m-d H:i:s"}}</td>
+                                    <td>
+                                        <a href='{{urlfor "SiteConfigEditController.get" "id" $vo.Id}}'
+                                           class="layui-btn layui-btn-normal layui-btn-xs">编辑</a>
+                                        <button href='{{urlfor "SiteConfigIndexController.Delone" "id" $vo.Id}}'
+                                                class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+<script>
+    layui.use(['layer', 'upload'], function () {
+        var upload = layui.upload;
+        $('.img-attr').on('click', function () {
+            var s = $("#Photo").val();
+			if (s == "") {
+				layer.msg("请先选择图片");
+				return
+			}
+            $.ajax({
+                url: {{urlfor "IndexImguploadController.UplodImg"}},
+                type: "post",
+                data: {'imgsrc': $("#Photo").val()},
+                success: function (info) {
+                    if (info.code === 1) {
+                        setTimeout(function () {
+                            location.href = info.url || location.href;
+                        }, 1000);
+                        layer.msg(info.msg);
+                    }
+                    layer.msg(info.msg);
+                }
+            });
+        });
+        //图片上传
+        var uploadInst = upload.render({
+            elem: '#upphoto',
+            url: '{{urlfor "SyscommonController.Upload"}}',
+            before: function (obj) {
+                layer.load(); //上传loading
+            },
+            done: function (res) {
+                layer.closeAll('loading');
+                if (res.code == 0) {
+                    $("#Photo").val(res.data.src);
+                    $("#imgreview").attr("src", res.data.src);
+                    $.ajax({
+                        url: {{urlfor "IndexImguploadController.UplodImg"}},
+                        type: "post",
+                        data: {'imgsrc': $("#Photo").val()},
+                        success: function (info) {
+                            if (info.code === 1) {
+                                setTimeout(function () {
+                                    location.href = info.url || location.href;
+                                }, 1000);
+                                layer.msg(info.msg);
+                            }
+                            layer.msg(info.msg);
+                        }
+                    });
+                } else {
+                    layer.msg(res.msg);
+                }
+            },
+            error: function () {
+                layer.closeAll('loading');
+                layer.msg("图片上传失败，请重试");
+            }
+        });
+    })
+</script>
+</html>

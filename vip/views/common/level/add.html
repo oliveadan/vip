@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+			<!--tab标签-->
+			<div class="layui-tab layui-tab-brief">
+				<ul class="layui-tab-title">
+					<li class=""><a href='{{urlfor "LevelController.get"}}'>VIP等级列表</a></li>
+					<li class="layui-this">添加VIP等级</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form form-container" action='{{urlfor "LevelAddController.post"}}' method="post">
+							{{ .xsrfdata }}
+							<div class="layui-form-item">
+								<label class="layui-form-label">VIP等级</label>
+								<div class="layui-input-inline">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="VipLevel" value="" required lay-verify="required" placeholder="请输入VIP等级" class="layui-input">
+								</div>
+								<div class="layui-form-mid layui-word-aux">例：vip1,只需要填写1即可。</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">VIP名称</label>
+								<div class="layui-input-inline">
+									<input type="text" name="VipName" value="" required lay-verify="required" placeholder="请输入VIP名称" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">背景图片</label>
+								<div class="layui-inline" style="margin-bottom: 0px;">
+									<input type="hidden" name="Bgimg" id="Photo" value="">
+									<img src='{{or .attr.Value "/static/img/noimg.jpg"}}' id="imgreview" width="100px" height="100px">
+									<button type="button" class="layui-btn layui-btn-primary layui-btn-big" id="upphoto">
+										<i class="layui-icon">&#xe61f;</i>上传图片
+									</button>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">彩色图片</label>
+								<div class="layui-inline" style="margin-bottom: 0px;">
+									<input type="hidden" name="Colorimg" id="Photo1" value="">
+									<img src='{{or .attr.Value "/static/img/noimg.jpg"}}' id="imgreview1" width="100px" height="100px">
+									<button type="button" class="layui-btn layui-btn-primary layui-btn-big" id="upphoto1">
+										<i class="layui-icon">&#xe61f;</i>上传图片
+									</button>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">黑白图片</label>
+								<div class="layui-inline" style="margin-bottom: 0px;">
+									<input type="hidden" name="Wbimg" id="Photo2" value="">
+									<img src='{{or .attr.Value "/static/img/noimg.jpg"}}' id="imgreview2" width="100px" height="100px">
+									<button type="button" class="layui-btn layui-btn-primary layui-btn-big" id="upphoto2">
+										<i class="layui-icon">&#xe61f;</i>上传图片
+									</button>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">累计投注</label>
+								<div class="layui-input-block">
+									<input  onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="TotalBet" value="" required lay-verify="required" placeholder="请输入累计投注" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">晋级礼金</label>
+								<div class="layui-input-block">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="LevelGift" value="" required lay-verify="required" placeholder="请输入晋级礼金" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">保级金额</label>
+								<div class="layui-input-block">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="KeepLevelAmount" value="" required lay-verify="required" placeholder="请输入晋级礼金" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">倒退至等级</label>
+								<div class="layui-input-block">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="KeepLevelDown" value="" required lay-verify="required" placeholder="请输入晋级礼金" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit lay-filter="*">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+	layui.use('upload', function(){
+		var upload = layui.upload;
+
+		var uploadInst = upload.render({
+			elem: '#upphoto',
+			url: '{{urlfor "SyscommonController.Upload"}}',
+			before: function(obj){
+				layer.load(); //上传loading
+			},
+			done: function(res){
+				layer.closeAll('loading');
+				if(res.code==0) {
+					$("#Photo").val(res.data.src);
+					$("#imgreview").attr("src", res.data.src);
+					layer.msg(res.msg);
+				} else {
+					layer.msg(res.msg);
+				}
+			},
+			error: function(){
+				layer.closeAll('loading');
+				layer.msg("图片上传失败，请重试");
+			}
+		});
+		var uploadInst1 = upload.render({
+			elem: '#upphoto1',
+			url: '{{urlfor "SyscommonController.Upload"}}',
+			before: function(obj){
+				layer.load(); //上传loading
+			},
+			done: function(res){
+				layer.closeAll('loading');
+				if(res.code==0) {
+					$("#Photo1").val(res.data.src);
+					$("#imgreview1").attr("src", res.data.src);
+					layer.msg(res.msg);
+				} else {
+					layer.msg(res.msg);
+				}
+			},
+			error: function(){
+				layer.closeAll('loading');
+				layer.msg("图片上传失败，请重试");
+			}
+		});
+
+		var uploadInst2 = upload.render({
+			elem: '#upphoto2',
+			url: '{{urlfor "SyscommonController.Upload"}}',
+			before: function(obj){
+				layer.load(); //上传loading
+			},
+			done: function(res){
+				layer.closeAll('loading');
+				if(res.code==0) {
+					$("#Photo2").val(res.data.src);
+					$("#imgreview2").attr("src", res.data.src);
+					layer.msg(res.msg);
+				} else {
+					layer.msg(res.msg);
+				}
+			},
+			error: function(){
+				layer.closeAll('loading');
+				layer.msg("图片上传失败，请重试");
+			}
+		});
+	});
+</script>
+</body>
+</html>

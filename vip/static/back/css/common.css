@@ -1,0 +1,14 @@
+/*后台公用样式*/
+.layui-table tbody tr:hover {background-color: #f2f2f2;}
+.layui-tab {overflow: visible;}
+.layui-tab-title > li > a {display: block;}
+/*表单*/
+.form-container {max-width: 800px;}
+.form-container .edui-editor {margin-top: -7px;margin-bottom: -7px;margin-left: -11px;}
+/*分页*/
+.pagination {text-align: right; padding-right: 20px; float: right;}
+.pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;}
+.pagination li.active {background: #009688;color: #fff;border: 1px solid #009688;}
+.pagination li a {display: block;text-align: center;}
+/*table元素*/
+.layui-table-cell {height: auto!important; white-space: normal!important;}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class=""><a href='{{urlfor "MembersingleIndexController.get"}}'>会员投注列表</a></li>
+                    <li class="layui-this">添加会员投注</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form form-container" action='{{urlfor "MembersingleEditController.post"}}'
+                              method="post">
+                            {{ .xsrfdata}}
+                            <input type="hidden" name="Id" value="{{.data.Id}}">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">会员账号</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="Account" value="{{.data.Account}}" placeholder="请输入会员账号" required lay-verify="required"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">投注金额</label>
+                                <div class="layui-input-block">
+                                    <input onkeyup = "value=value.replace(/[^\d]/g,'')" type="number" name="Bet" value="{{.data.Bet}}" placeholder="请输入投注金额" required lay-verify="required"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">是否已计算</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="EnAble" value="1" title="是" {{if eq 1 .data.EnAble}}checked{{end}}>
+                                    <input type="radio" name="EnAble" value="0" title="否" {{if eq 0 .data.EnAble}}checked{{end}}>
+                                </div>
+                            </div>
+                            <!-- <div class="layui-form-item">
+                                <label class="layui-form-label">晋级彩金</label>
+                                <div class="layui-input-block">
+                                    <input type="number" name="LevelGift" value="{{.data.LevelGift}}" placeholder="请输入晋级彩金" required lay-verify="required"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">当天好运金</label>
+                                <div class="layui-input-block">
+                                    <input type="number" name="LuckyGift" value="{{.data.LuckyGift}}" placeholder="请输入当天好运金" required lay-verify="required"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                             -->
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

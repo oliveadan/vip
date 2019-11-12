@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">任务配置列表</li>
+                    <li class=""><a href='{{urlfor "AddMissionController.get"}}'>添加任务配置</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>开始时间</th>
+                                <th>结束时间</th>
+                                <th>任务描述</th>
+                                <th>是否计算</th>
+                                <th>是否累计计算</th>
+                                <th>任务积分</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                                <tr>
+                                    <td>{{$vo.Id}}</td>
+                                    <td>{{date  $vo.StartTime "Y-m-d H:i:s"}}</td>
+                                    <td>{{date  $vo.EndTime   "Y-m-d H:i:s"}}</td>
+                                    <td>{{$vo.Describe}}</td>
+                                    <td>{{map_get getCountEnAble $vo.CountEnble}}</td>
+                                    <td>{{map_get getCountEnAble $vo.SumEnable}}</td>
+                                    <td>{{$vo.Integral}}</td>
+                                    <td>
+                                        <a href='{{urlfor "EditMissionController.get" "id" $vo.Id}}'
+                                           class="layui-btn layui-btn-normal layui-btn-xs">编辑</a>
+                                        <button href='{{urlfor "IndexMissionController.Delone" "id" $vo.Id}}'
+                                                class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除
+                                        </button>
+                                            <a href='{{urlfor "IndexMissionDetailController.get" "missionid" $vo.Id}}'
+                                                    class="layui-btn layui-btn-normal layui-btn-xs">配置任务详情
+                                            </a>
+                                        {{if eq 1 $vo.CountEnble}}
+                                            <a href='{{urlfor "IndexMissionDateController.get" "id" $vo.Id}}'
+                                               class="layui-btn layui-btn-normal layui-btn-xs">任务数据</a>
+                                            <a href='{{urlfor "IndexMissionResultController.get" "id" $vo.Id}}'
+                                               class="layui-btn layui-btn-normal layui-btn-xs">计算结果</a>
+                                        {{end}}
+                                    </td>
+                                </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                        {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

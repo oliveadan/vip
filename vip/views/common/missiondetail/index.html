@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class=""><a href='{{urlfor "IndexMissionController.get"}}'>任务配置列表</a></li>
+                    <li class="layui-this">任务详情列表</li>
+                    <li class=""><a href='{{urlfor "AddMissionDetailController.get" "missionid" .missionid}}'>添加任务详情</a></li>
+                </ul>
+
+                <div class="layui-tab-content">
+                    <div>
+                        <span style="color: red;">任务描述：{{.describe}}</span>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <th>编号</th>
+                                {{if eq  1 .countenable}}
+                                <th>详情内容</th>
+                                {{end}}
+                                <th>奖品</th>
+                                <th>最小VIP等级</th>
+                                <th>最大VIP等级</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                                <tr>
+                                    <td>{{$vo.Id}}</td>
+                                    {{if eq  1 $.countenable}}
+                                    <td>{{$vo.Content}}</td>
+                                    {{end}}
+                                    <td>{{$vo.Award}}</td>
+                                    <td>{{$vo.MinLevel}}</td>
+                                    <td>{{$vo.MaxLevel}}</td>
+                                    <td>
+                                        <a href='{{urlfor "EditMissionDetailController.get" "id" $vo.Id}}'
+                                           class="layui-btn layui-btn-normal layui-btn-xs">编辑</a>
+                                        <button href='{{urlfor "IndexMissionDetailController.Delone" "id" $vo.Id}}'
+                                                class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                        {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">任务奖励列表</li>
+                    <li class=""><a href='{{urlfor "PeriodAddController.get"}}'>添加分类</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-inline">
+                        <span style="color: red">注意:日期越大排序字段也必须越大，否则会计算错误。</span>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <td style="width:30px;">编号</td>
+                                <td>名称</td>
+                                <td>排序字段</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                            <tr>
+                                <td>{{$vo.Id}}</td>
+                                <td>{{$vo.PeriodName}}</td>
+                                <td>{{$vo.Rank}}</td>
+                                <td>
+                                    <a href='{{urlfor "PeriodEditController.Get" "id" $vo.Id}}' class="layui-btn layui-btn-normal layui-btn-xs">修改</a>
+                                    <button href='{{urlfor "PeriodIndexController.Delone" "id" $vo.Id}}' class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除</button>
+                                </td>
+                            </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

@@ -1,0 +1,12 @@
+2019/11/06 17:24:52.032 [E] [beecache.go:99]  recover cache error: interface conversion: interface {} is string, not []uint8 
+2019/11/06 17:24:52.041 [C] [panic.go:522]  the request url is  /as/missionreview/index
+2019/11/06 17:24:52.042 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/06 17:24:52.042 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/06 17:24:52.042 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/06 17:24:52.042 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/06 17:24:52.043 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/06 17:24:52.043 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/06 17:24:52.043 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/06 17:24:52.043 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/06 17:24:52.044 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/06 17:24:52.065 [W] [login.go:21]  LoginController Get from ip: ::1 

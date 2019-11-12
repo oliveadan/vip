@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">组织列表</li>
+                    <li class=""><a href='{{urlfor "OrganizationAddController.get"}}'>添加组织</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <td style="width:30px;">ID</td>
+                                <td>名称</td>
+                                <td>过期时间</td>
+                                <td>绑定域名</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                            <tr>
+                                <td>{{$vo.Id}}</td>
+                                <td>{{$vo.Name}}</td>
+                                <td>{{date $vo.ExpireTime "Y-m-d H:i:s"}}</td>
+                                <td>{{$vo.BindDomain}}</td>
+                                <td>
+                                    <a href='{{urlfor "OrganizationEditController.Get" "id" $vo.Id}}' class="layui-btn layui-btn-normal layui-btn-xs">修改</a>
+                                </td>
+                            </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

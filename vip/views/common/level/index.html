@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">VIP等级列表</li>
+                    <li class=""><a href='{{urlfor "LevelAddController.get"}}'>添加VIP等级</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>VIP等级</th>
+                                <th>VIP名称</th>
+                                <th>背景图片</th>
+                                <th>彩色图片</th>
+                                <th>黑白图片</th>
+                                <th>累计投注</th>
+                                <th>晋级礼金</th>
+                                <th>保级金额</th>
+                                <th>倒退至等级</th>
+                                <!--<th>每天投注额</th> -->
+                                <!--<th>每月好运金</th> -->
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                                <tr>
+                                    <td>{{$vo.Id}}</td>
+                                    <td>VIP{{$vo.VipLevel}}</td>
+                                    <td>{{$vo.VipName}}</td>
+                                    <td><img src='{{$vo.Bgimg}}' id="imgreview" width="100px" height="100px"></td>
+                                    <td><img src='{{$vo.Colorimg}}' id="imgreview" width="100px" height="100px"></td>
+                                    <td><img src='{{$vo.Wbimg}}' id="imgreview" width="100px" height="100px"></td>
+                                    <td>{{$vo.TotalBet}}</td>
+                                    <td>{{$vo.LevelGift}}</td>
+                                    <td>{{$vo.KeepLevelAmount}}</td>
+                                    <td>{{$vo.KeepLevelDown}}</td>
+                                    <td>
+                                        <a href='{{urlfor "LevelEditController.get" "id" $vo.Id}}'
+                                           class="layui-btn layui-btn-normal layui-btn-xs">编辑</a>
+                                        <button href='{{urlfor "LevelController.Delone" "id" $vo.Id}}'
+                                                class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

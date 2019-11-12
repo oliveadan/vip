@@ -1,0 +1,60 @@
+2019/11/05 13:43:22.732 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 13:43:22.734 [I] [db.go:49]  Auto create db 
+2019/11/05 13:43:22.755 [I] [projectdata.go:18]  Init project data 
+2019/11/05 13:43:22.882 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 13:43:22.882 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 13:43:29.757 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/05 13:43:31.486 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 
+2019/11/05 14:08:26.732 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:08:26.733 [I] [db.go:49]  Auto create db 
+2019/11/05 14:08:26.748 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:08:26.846 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:08:26.846 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 14:08:35.911 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/05 14:08:38.026 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 
+2019/11/05 14:10:11.461 [I] [rewardlog.go:125]  query rewardLog  
+2019/11/05 14:12:15.671 [I] [rewardlog.go:125]  query rewardLog  
+2019/11/05 14:15:53.232 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:15:53.235 [I] [db.go:49]  Auto create db 
+2019/11/05 14:15:53.253 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:15:53.350 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:15:53.350 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 14:32:12.106 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:32:12.108 [I] [db.go:49]  Auto create db 
+2019/11/05 14:32:12.121 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:32:12.226 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 14:32:12.226 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:33:47.104 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:33:47.106 [I] [db.go:49]  Auto create db 
+2019/11/05 14:33:47.119 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:33:47.226 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 14:33:47.227 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:37:12.732 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:37:12.734 [I] [db.go:49]  Auto create db 
+2019/11/05 14:37:12.750 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:37:12.857 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 14:37:12.857 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:41:26.890 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:41:26.892 [I] [db.go:49]  Auto create db 
+2019/11/05 14:41:26.907 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:41:27.023 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 14:41:27.023 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:46:21.297 [I] [beecache.go:27]  Init cache success!! 
+2019/11/05 14:46:21.299 [I] [db.go:49]  Auto create db 
+2019/11/05 14:46:21.313 [I] [projectdata.go:18]  Init project data 
+2019/11/05 14:46:21.415 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/05 14:46:21.415 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/05 18:41:01.346 [E] [beecache.go:99]  recover cache error: interface conversion: interface {} is string, not []uint8 
+2019/11/05 18:41:01.348 [C] [panic.go:522]  the request url is  /as/missionreview/index
+2019/11/05 18:41:01.349 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/05 18:41:01.349 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/05 18:41:01.350 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/05 18:41:01.350 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/05 18:41:01.350 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/05 18:41:01.350 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/05 18:41:01.350 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/05 18:41:01.350 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/05 18:41:01.350 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/05 18:41:01.359 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/05 18:41:03.624 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/05 18:41:04.474 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 

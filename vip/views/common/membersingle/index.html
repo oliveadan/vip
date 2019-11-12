@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">会员投注列表</li>
+                   <!--<li class=""><a href='{{urlfor "MembersingleAddController.get"}}'>添加会员投注</a></li> -->
+                    <li><a id="import" lay-data="{url: '{{urlfor "MembersingleIndexController.Import"}}'}"
+                           href='javascript:void(0);'>批量导入</a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <form class="layui-form layui-form-pane form-container" style="max-width: 1500px;" action='{{urlfor "MembersingleIndexController.get"}}' method="get">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">期数名称</label>
+                            <div class="layui-input-inline">
+                                <select name="PeriodName" lay-verify="required" lay-search>
+                                    {{range $i, $m := .periodNames}}
+                                        <option value="{{$m.PeriodName}}" {{if eq $m.PeriodName $.condArr.memberSingleName}}selected="selected"{{end}}>{{$m.PeriodName}}</option>
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input type="text" name="account" value="{{.condArr.account}}" placeholder="会员账号" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input type="text" name="levelgift" value="{{.condArr.LevelGift}}" placeholder="晋级彩金" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input type="checkbox" name="isExport" value="1" lay-skin="switch" lay-text="导出|导出">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <button class="layui-btn">搜索/导出</button>
+                            <a href='{{urlfor "MembersingleIndexController.DelBatch"}}' class="layui-btn layui-btn-danger ajax-batch">删除本期</a>
+                            <a href='{{urlfor "MembersingleIndexController.CountGift"}}' class="layui-btn layui-btn-normal ajax-count">计算本期彩金</a>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="layui-inline">
+                        <span style="color: red">注意:导入前请认真核对数据，计算是不可逆的。</span>
+                    </div>
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table">
+                            <thead>
+                            <tr>
+                                <td>编号</td>
+                                <td>期数名称</td>
+                                <td>会员账号</td>
+                                <td>本期投注金额</td>
+                                <td>是否已计算</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range $index, $vo := .dataList}}
+                            <tr>
+                                <td>{{$vo.Id}}</td>
+                                <td>{{$vo.PeriodName}}</td>
+                                <td>{{$vo.Account}}</td>
+                                <td>{{$vo.Bet}}</td>
+                                <td>{{if eq 0 $vo.EnAble}}<span style="color:red">否</span>{{else}}
+                                        <span style>是</span>{{end}}</td>
+                                <td>
+                                    <a href='{{urlfor "MembersingleEditController.Get" "id" $vo.Id}}' class="layui-btn layui-btn-normal layui-btn-xs">修改</a>
+                                    <button href='{{urlfor "MembersingleIndexController.Delone" "id" $vo.Id}}' class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除</button>
+                                </td>
+                            </tr>
+                            {{else}}
+                                {{template "sysmanage/aalayout/table-no-data.tpl"}}
+                            {{end}}
+                            </tbody>
+                        </table>
+                    {{template "sysmanage/aalayout/paginator.tpl" .}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+    layui.use(['layer'], function () {
+        $('.ajax-count').on('click', function () {
+            var _href = $(this).attr('href');
+            layer.open({
+                shade: false,
+                content: '该操作将根据期数名称批量处理数据，请谨慎操作！<br>确定执行？',
+                btn: ['确定', '取消'],
+                yes: function (index) {
+                    $.ajax({
+                        url: _href,
+                        type: "POST",
+                        data: $('.layui-form').serialize(),
+                        beforeSend:function(){
+                            layer.load();
+                        },
+                        success: function (info) {
+                            layer.closeAll('loading');
+                            if (info.code === 1) {
+                                layer.msg(info.msg, {icon: 1});
+                            } else {
+                                layer.msg(info.msg, {icon: 2});
+                            }
+                        },
+                        error: function(info) {
+                            layer.closeAll('loading');
+                            layer.msg(info.responseText || '请求异常', {icon: 2});
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+
+            return false;
+        });
+    })
+</script>
+</body>
+</html>

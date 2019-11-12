@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space10">
+		<div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+			<!--tab标签-->
+			<div class="layui-tab layui-tab-brief">
+				<ul class="layui-tab-title">
+					<li class=""><a href='{{urlfor "IndexMissionDetailController.get" "missionid" .data.MissionId}}'>任务详情列表</a></li>
+					<li class="layui-this">修改任务详情</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<form class="layui-form form-container" action='{{urlfor "EditMissionDetailController.post"}}' method="post">
+							{{ .xsrfdata }}
+							<input value="{{.data.Id}}" name="Id" type="hidden">
+							<input value="{{.data.MissionId}}" name="MissionId" type="hidden">
+							{{if eq 1 .countenble}}
+							<div class="layui-form-item">
+								<label class="layui-form-label">详情内容</label>
+								<div class="layui-input-inline">
+									<input type="text" name="Content" value="{{.data.Content}}" required lay-verify="required" placeholder="请输入详情内容" onkeyup = "value=value.replace(/[^\d]/g,'')" class="layui-input">
+								</div>
+								<div class="layui-form-mid layui-word-aux">例：需达到掩码2000，填写2000即可。(注意：只能填写数字)</div>
+							</div>
+							{{end}}
+							<div class="layui-form-item">
+								<label class="layui-form-label">奖品</label>
+								<div class="layui-input-block">
+									<input type="text" name="Award" value="{{.data.Award}}" required lay-verify="required" placeholder="请输入奖品名称" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">最小VIP等级</label>
+								<div class="layui-input-inline">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="MinLevel" value="{{.data.MinLevel}}" required lay-verify="required" placeholder="请输入最小VIP等级" onkeyup = "value=value.replace(/[^\d]/g,'')" class="layui-input">
+								</div>
+								<div class="layui-form-mid layui-word-aux">例：vip1,只需要填写1即可。</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">最大VIP等级</label>
+								<div class="layui-input-inline">
+									<input onkeyup = "value=value.replace(/[^\d]/g,'')" type="text" name="MaxLevel" value="{{.data.MaxLevel}}" required lay-verify="required" placeholder="请输入最大VIP等级" onkeyup = "value=value.replace(/[^\d]/g,'')" class="layui-input">
+								</div>
+								<div class="layui-form-mid layui-word-aux">例：vip10,只需要填写10即可。</div>
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-input-block">
+									<button class="layui-btn" lay-submit lay-filter="*">保存</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

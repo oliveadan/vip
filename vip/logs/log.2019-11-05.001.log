@@ -1,0 +1,327 @@
+2019/11/01 17:11:45.994 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:11:45.995 [I] [db.go:49]  Auto create db 
+2019/11/01 17:11:46.015 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:11:46.145 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:11:51.545 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:11:51.549 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:11:51.549 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:11:51.550 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:11:51.550 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:11:51.550 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:11:51.550 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:11:51.550 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:11:51.550 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:31
+2019/11/01 17:11:51.550 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:11:51.550 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:11:51.551 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:11:51.551 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:11:51.551 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:11:51.552 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:11:52.737 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:11:52.738 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:11:52.738 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:11:52.738 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:31
+2019/11/01 17:11:52.738 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:11:52.738 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:11:52.738 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:11:52.738 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:15:37.012 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:15:37.015 [I] [db.go:49]  Auto create db 
+2019/11/01 17:15:37.035 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:15:37.151 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:16:03.480 [I] [main.go:27]  map[Server:[beegoServer:1.12.0] Set-Cookie:[phagesesid=2e4a556c6543a7eed9e8fc3bca06d52f; Path=/; Expires=Fri, 01 Nov 2019 17:16:03 GMT; Max-Age=28800; HttpOnly]] 
+2019/11/01 17:16:03.483 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:16:03.483 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:16:03.483 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:31
+2019/11/01 17:16:03.483 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:16:03.483 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:16:03.483 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:16:03.483 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:17:10.763 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:17:10.765 [I] [db.go:49]  Auto create db 
+2019/11/01 17:17:10.785 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:17:10.903 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:17:18.642 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:17:18.642 [I] [main.go:29]  <nil> 
+2019/11/01 17:17:18.646 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:17:18.646 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:17:18.646 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:32
+2019/11/01 17:17:18.646 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:17:18.646 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:17:18.646 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:17:18.646 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:17:47.431 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:17:47.432 [I] [db.go:49]  Auto create db 
+2019/11/01 17:17:47.447 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:17:47.542 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:18:12.188 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:18:12.190 [I] [db.go:49]  Auto create db 
+2019/11/01 17:18:12.204 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:18:12.311 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:18:15.417 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:18:15.419 [I] [main.go:30]  open views/404.tpl: The system cannot find the file specified. 
+2019/11/01 17:18:15.421 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:18:15.421 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:18:15.421 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:18:15.421 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:18:15.421 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:18:15.421 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:18:15.421 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:18:57.298 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:18:57.300 [I] [db.go:49]  Auto create db 
+2019/11/01 17:18:57.316 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:18:57.419 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:19:12.544 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:19:12.545 [E] [main.go:30]  eee open views/404.tpl: The system cannot find the file specified. 
+2019/11/01 17:19:12.547 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:19:12.547 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:19:12.547 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:19:12.547 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:19:12.547 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:19:12.547 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:19:12.547 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:19:31.164 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:19:31.166 [I] [db.go:49]  Auto create db 
+2019/11/01 17:19:31.183 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:19:31.293 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:19:37.719 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:19:37.719 [E] [main.go:30]  eee template: 404.html:7: function "static_url" not defined 
+2019/11/01 17:19:37.720 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:19:37.720 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:19:37.720 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:19:37.720 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:19:37.720 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:19:37.720 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:19:37.720 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:22:57.079 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:22:57.080 [I] [db.go:49]  Auto create db 
+2019/11/01 17:22:57.095 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:22:57.199 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:23:01.720 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:23:01.721 [E] [main.go:30]  eee template: 404.html:7: function "static_url" not defined 
+2019/11/01 17:23:01.724 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:23:01.724 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:23:01.724 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:23:01.724 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:23:01.724 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:23:01.724 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:23:01.724 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:23:01.724 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:23:01.724 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:23:01.724 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:23:01.724 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:23:01.725 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:23:01.725 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:23:01.725 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:23:04.006 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:23:04.006 [E] [main.go:30]  eee template: 404.html:7: function "static_url" not defined 
+2019/11/01 17:23:04.007 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:23:04.008 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:23:04.008 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:23:04.008 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:23:04.008 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:23:04.008 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:23:04.008 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:24:10.281 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:24:10.283 [I] [db.go:49]  Auto create db 
+2019/11/01 17:24:10.304 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:24:10.409 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:24:27.142 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:24:27.145 [E] [main.go:30]  eee template: 404.html:7: function "static_front" not defined 
+2019/11/01 17:24:27.146 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:24:27.146 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:24:27.146 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:24:27.146 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:24:27.146 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:24:27.146 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:24:27.146 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:25:28.577 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:25:28.579 [I] [db.go:49]  Auto create db 
+2019/11/01 17:25:28.600 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:25:28.735 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:25:32.992 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:25:32.992 [E] [main.go:30]  eee template: 404.html:7: function "static_front" not defined 
+2019/11/01 17:25:32.994 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:25:32.994 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:25:32.994 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:25:32.994 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:25:32.994 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:25:32.994 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:25:32.994 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:25:32.995 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:25:32.995 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:25:32.995 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:25:32.995 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:25:32.995 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:25:32.995 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:25:32.995 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:25:43.247 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:25:43.249 [I] [db.go:49]  Auto create db 
+2019/11/01 17:25:43.269 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:25:43.366 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:25:46.264 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:25:46.264 [E] [main.go:30]  eee template: 404.html:7: function "static_front" not defined 
+2019/11/01 17:25:46.266 [C] [panic.go:522]  the request url is  /sdfdsfkjbnkjn
+2019/11/01 17:25:46.267 [C] [panic.go:522]  Handler crashed with error runtime error: invalid memory address or nil pointer dereference
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:82
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/runtime/signal_windows.go:233
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/html/template/template.go:95
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/html/template/template.go:119
+2019/11/01 17:25:46.267 [C] [panic.go:522]  D:/mygo/src/phagego/phage-vip4-web/main.go:34
+2019/11/01 17:25:46.267 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:442
+2019/11/01 17:25:46.267 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/error.go:427
+2019/11/01 17:25:46.267 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:744
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:25:46.267 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:25:46.268 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:26:12.961 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:26:12.963 [I] [db.go:49]  Auto create db 
+2019/11/01 17:26:13.044 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:26:13.151 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:26:15.885 [I] [main.go:27]  map[Server:[beegoServer:1.12.0]] 
+2019/11/01 17:49:42.441 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/01 17:49:42.447 [I] [db.go:49]  Auto create db 
+2019/11/01 17:49:42.504 [I] [projectdata.go:18]  Init project data 
+2019/11/01 17:49:42.640 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/01 17:49:42.640 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/01 17:51:14.639 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/01 17:51:16.783 [E] [beecache.go:71]  Set cache error cache is nil 
+2019/11/01 17:51:16.788 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 
+2019/11/01 17:51:17.824 [E] [beecache.go:93]  Get cache error cache is nil 
+2019/11/01 17:51:17.826 [C] [panic.go:522]  the request url is  /as/sys/base
+2019/11/01 17:51:17.827 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/01 17:51:17.827 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/01 17:51:17.827 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/01 17:51:17.827 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/01 17:51:17.827 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/01 17:51:17.827 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/01 17:51:17.827 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/01 17:51:17.827 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/01 17:51:17.827 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/01 17:51:17.828 [server.go:3010]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2019/11/04 19:31:14.395 [E] [beecache.go:35]  New file cache error json: cannot unmarshal number into Go value of type string 
+2019/11/04 19:31:14.397 [I] [db.go:49]  Auto create db 
+2019/11/04 19:31:14.419 [I] [projectdata.go:18]  Init project data 
+2019/11/04 19:31:14.625 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/04 19:31:14.625 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/04 19:31:32.135 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/04 19:31:34.440 [E] [beecache.go:71]  Set cache error cache is nil 
+2019/11/04 19:31:34.445 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 
+2019/11/04 19:31:35.475 [E] [beecache.go:93]  Get cache error cache is nil 
+2019/11/04 19:31:35.477 [C] [panic.go:522]  the request url is  /as/sys/base
+2019/11/04 19:31:35.477 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/04 19:31:35.477 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/04 19:31:35.477 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/04 19:31:35.477 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/04 19:31:35.477 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/04 19:31:35.478 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/04 19:31:35.478 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/04 19:31:35.478 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/04 19:31:35.478 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/04 19:31:35.478 [server.go:3010]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2019/11/04 19:31:47.543 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/04 19:31:49.670 [E] [beecache.go:71]  Set cache error cache is nil 
+2019/11/04 19:31:49.674 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 
+2019/11/04 19:31:50.700 [E] [beecache.go:93]  Get cache error cache is nil 
+2019/11/04 19:31:50.702 [C] [panic.go:522]  the request url is  /as/sys/base
+2019/11/04 19:31:50.702 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/04 19:31:50.702 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/04 19:31:50.702 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/04 19:31:50.702 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/04 19:31:50.702 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/04 19:31:50.702 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/04 19:31:50.702 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/04 19:31:50.703 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/04 19:31:50.703 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/04 19:31:50.703 [server.go:3010]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2019/11/04 19:32:06.939 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/04 19:32:08.259 [E] [beecache.go:71]  Set cache error cache is nil 
+2019/11/04 19:32:08.263 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 
+2019/11/04 19:32:09.293 [E] [beecache.go:93]  Get cache error cache is nil 
+2019/11/04 19:32:09.296 [C] [panic.go:522]  the request url is  /as/sys/base
+2019/11/04 19:32:09.296 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/04 19:32:09.296 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/04 19:32:09.296 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/04 19:32:09.296 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/04 19:32:09.296 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/04 19:32:09.297 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/04 19:32:09.297 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/04 19:32:09.297 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/04 19:32:09.297 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/04 19:32:09.297 [server.go:3010]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2019/11/04 19:33:09.314 [E] [beecache.go:93]  Get cache error cache is nil 
+2019/11/04 19:33:09.315 [C] [panic.go:522]  the request url is  /as/sys/base
+2019/11/04 19:33:09.315 [C] [panic.go:522]  Handler crashed with error 登录过期，请重新登录
+2019/11/04 19:33:09.315 [C] [panic.go:522]  C:/Go/src/runtime/panic.go:522
+2019/11/04 19:33:09.315 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/context/context.go:88
+2019/11/04 19:33:09.315 [C] [panic.go:522]  D:/mygo/src/phagego/frameweb-v2/initial/filter.go:56
+2019/11/04 19:33:09.315 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:644
+2019/11/04 19:33:09.315 [C] [panic.go:522]  D:/mygo/src/github.com/astaxie/beego/router.go:730
+2019/11/04 19:33:09.315 [C] [panic.go:522]  C:/Go/src/net/http/server.go:2774
+2019/11/04 19:33:09.315 [C] [panic.go:522]  C:/Go/src/net/http/server.go:1878
+2019/11/04 19:33:09.315 [C] [panic.go:522]  C:/Go/src/runtime/asm_amd64.s:1337
+2019/11/04 19:33:09.315 [server.go:3010]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2019/11/04 19:33:56.688 [I] [beecache.go:27]  Init cache success!! 
+2019/11/04 19:33:56.690 [I] [db.go:49]  Auto create db 
+2019/11/04 19:33:56.704 [I] [projectdata.go:18]  Init project data 
+2019/11/04 19:33:56.822 [I] [asm_amd64.s:1337]  http server Running on http://:8084
+2019/11/04 19:33:56.822 [I] [asm_amd64.s:1337]  Admin server Running on :8088
+2019/11/04 19:34:01.669 [W] [login.go:21]  LoginController Get from ip: ::1 
+2019/11/04 19:34:03.942 [W] [login.go:114]  LoginController Post from ip: ::1 username: admin 

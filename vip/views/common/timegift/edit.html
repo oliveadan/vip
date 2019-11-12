@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+            <!--tab标签-->
+            <div class="layui-tab layui-tab-brief">
+                <ul class="layui-tab-title">
+                    <li class=""><a href='{{urlfor "IndexTimeGiftController.get"}}'>时间奖励列表</a></li>
+                    <li class="layui-this">添加时间奖励</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form form-container" action='{{urlfor "EditTimeGiftController.post"}}'
+                              method="post">
+                            <input type="hidden" name="Id" value="{{.data.Id}}">
+                            {{ .xsrfdata}}
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">VIP等级</label>
+                                <div class="layui-input-inline">
+                                    <input  type="number" name="GiftLevel" value="{{.data.GiftLevel}}" placeholder="请输入VIP等级" required lay-verify="required"
+                                            class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最小金额</label>
+                                <div class="layui-input-inline">
+                                    <input type="number" name="MinMoney" value="{{.data.MinMoney}}"  placeholder="请输入最小金额" required lay-verify="required"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">最大金额</label>
+                                <div class="layui-input-inline">
+                                    <input type="number" name="MaxMoney" value="{{.data.MaxMoney}}"  placeholder="请输入最大金额" required lay-verify="required"
+                                           class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">单位</label>
+                                <div class="layui-input-inline">
+                                    <select name="Category">
+                                        <option value="0" {{if eq 0 .data.Category}}selected="selected"{{end}}>元</option>
+                                        <option value="1" {{if eq 1 .data.Category}}selected="selected"{{end}}>角</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+</body>
+</html>

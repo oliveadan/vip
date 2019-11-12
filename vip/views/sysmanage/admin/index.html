@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{template "sysmanage/aalayout/meta.tpl" .}}
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12">
+			<!--tab标签-->
+			<div class="layui-tab layui-tab-brief">
+				<ul class="layui-tab-title">
+					<li class="layui-this">管理员列表</li>
+					<li class=""><a href='{{urlfor "AdminAddController.get"}}'>添加管理员</a></li>
+				</ul>
+				<div class="layui-tab-content">
+					<form class="layui-form layui-form-pane" action='{{urlfor "AdminIndexController.get"}}' method="get">
+						<div class="layui-inline">
+							<div class="layui-input-inline">
+								<input type="text" name="param1" value="{{.condArr.param1}}" placeholder="用户名 | 名称" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<button class="layui-btn"><i class="layui-icon layui-icon-search layuiadmin-button-btn"></i></button>
+						</div>
+					</form>
+					<hr>
+					<div class="layui-tab-item layui-show">
+						<table class="layui-table">
+							<thead>
+							<tr>
+								<th>ID</th>
+								<th>用户名</th>
+								<th>名称</th>
+                                <th>邮箱</th>
+                                <th>登录验证</th>
+								<th>是否可用</th>
+								<th>最后登录时间</th>
+								<th>最后登录IP</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							{{range $index, $vo := .dataList}}
+								<tr>
+									<td>{{$vo.Id}}</td>
+									<td>{{$vo.Username}}</td>
+									<td>{{$vo.Name}}</td>
+                                    <td>{{$vo.Email}}</td>
+                                    <td>{{if eq $vo.LoginVerify 1}}<span class="layui-badge layui-bg-green">启用</span>{{else}}<span class="layui-badge layui-bg-red">禁用</span>{{end}}</td>
+                                    <td>{{if eq $vo.Enabled 1}}<span class="layui-badge layui-bg-green">启用</span>{{else}}<span class="layui-badge layui-bg-red">禁用</span>{{end}}</td>
+									<td>{{date $vo.LoginDate "Y-m-d H:i:s"}}</td>
+									<td>{{$vo.LoginIp}}</td>
+									<td>
+									{{if eq $vo.LoginVerify 0}}
+                                        <button type="button" data-id="{{$vo.Id}}" class="layui-btn layui-btn-xs ajax-setLoginVerify">启用登录验证</button>
+									{{else}}
+                                        <button type="button" href='{{urlfor "AdminIndexController.LoginVerify" "id" $vo.Id}}' class="layui-btn layui-btn-primary layui-btn-xs ajax-click">禁用登录验证</button>
+									{{end}}
+									{{if eq $vo.Locked 0}}
+										<button type="button" href='{{urlfor "AdminIndexController.Locked" "id" $vo.Id}}' class="layui-btn layui-btn-xs ajax-click">锁定</button>
+									{{else}}
+										<button type="button" href='{{urlfor "AdminIndexController.Locked" "id" $vo.Id}}' class="layui-btn layui-btn-primary layui-btn-xs ajax-click">解锁</button>
+									{{end}}
+										<a href='{{urlfor "AdminEditController.get" "id" $vo.Id}}' class="layui-btn layui-btn-normal layui-btn-xs">编辑</a>
+										<button type="button" href='{{urlfor "AdminIndexController.Delone" "id" $vo.Id}}' class="layui-btn layui-btn-danger layui-btn-xs ajax-delete">删除</button>
+									</td>
+								</tr>
+							{{else}}
+								{{template "sysmanage/aalayout/table-no-data.tpl"}}
+							{{end}}
+							</tbody>
+						</table>
+                        {{template "sysmanage/aalayout/paginator.tpl" .}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "sysmanage/aalayout/footjs.tpl" .}}
+<script>
+    layui.use('layer', function(){
+        var $ = layui.jquery;
+
+        $('.ajax-setLoginVerify').on('click', function () {
+            var loadi = layer.load();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: '{{urlfor "AdminIndexController.LoginVerify"}}',
+                type: "post",
+                data: {'id':id,'type':'send'},
+                success: function (info) {
+                    if (info.code === 1) {
+                        layer.prompt({
+                            title: '输入验证码(邮件:Phage(富吉))',
+                            offset: '200px'
+                        }, function(value, index, elem){
+                            $.ajax({
+                                url: '{{urlfor "AdminIndexController.LoginVerify"}}',
+                                type: "post",
+                                data: {'id':id,'type':'verify','code':value},
+                                success: function (info) {
+                                    if (info.code === 1) {
+                                        setTimeout(function () {
+                                            location.href = info.url || location.href;
+                                        }, 1000);
+                                        layer.msg(info.msg, {icon: 1});
+                                    } else {
+                                        layer.msg(info.msg, {icon: 2});
+									}
+                                }
+                            });
+                            layer.close(index);
+                        });
+                        layer.msg(info.msg, {icon: 1});
+                    } else {
+                        layer.msg(info.msg, {icon: 2});
+					}
+                },
+                complete: function () {
+                    layer.close(loadi);
+                }
+            });
+
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>
